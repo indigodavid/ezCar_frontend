@@ -1,6 +1,9 @@
 import React from 'react';
+import InputColor from 'react-input-color';
 
 function AddCardForm() {
+	const [color, setColor] = React.useState({});
+
 	return (
 		<form>
 			<div class="relative z-0 mb-6 w-full group">
@@ -65,7 +68,10 @@ function AddCardForm() {
 						for="floating_first_name"
 						class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
 					>
-						Color
+						<div>
+							Color
+							<InputColor initialValue="#5e72e4" onChange={setColor} placement="right" />
+						</div>
 					</label>
 				</div>
 				<div class="relative z-0 mb-6 w-full group">
