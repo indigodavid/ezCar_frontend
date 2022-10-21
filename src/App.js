@@ -18,7 +18,7 @@ function App() {
       <Navbar open={open} />
       <Routes>
         <Route path="/" element={<Splash />} />
-        <Route path="/add/car" element={<AddCarForm />} />
+        <Route path="/add_car" element={<AddCarForm />} />
         <Route path="/reservation" element={<Reservation />} />
       </Routes>
     </div>
