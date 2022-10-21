@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Reservation from './pages/Reservation';
 import MenuOpener from './components/MenuOpener';
 import Navbar from './components/Navbar';
 import Splash from './pages/Splash';
@@ -16,6 +17,7 @@ function App() {
       <Navbar open={open} />
       <Routes>
         <Route path="/" element={<Splash />} />
+        <Route path="/reservation" element={<Reservation />} />
       </Routes>
     </div>
   );

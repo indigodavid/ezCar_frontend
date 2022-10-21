@@ -7,6 +7,10 @@
 @import 'styles/menuOpener.css';
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
+.btn-primary {
+  @apply py-3 px-5 bg-lime-500 hover:bg-lime-600 text-white rounded-full;
+}
+
 body {
   margin: 0;
   font-family:
