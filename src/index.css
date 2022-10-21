@@ -5,7 +5,7 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-green-500 text-white rounded-full;
+    @apply py-3 px-5 bg-green-500 text-white rounded-full;
   }
 }
 
