@@ -15,6 +15,14 @@ const userSlice = createSlice({
       status: 'success',
       user: action.payload,
     }));
+    builder.addCase(logInUser.pending, (state) => ({
+      ...state,
+      status: 'loading',
+    }));
+    builder.addCase(logInUser.rejected, (state) => ({
+      ...state,
+      status: 'failed',
+    }));
     builder.addCase(logOutUser.fulfilled, (state, action) => ({
       ...state,
       status: action.message,
