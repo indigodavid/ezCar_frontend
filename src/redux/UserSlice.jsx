@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import logInUser from '../data-api/userLogIn';
-import logOutUser from '../data-api/userLogOut';
-import signUpUser from '../data-api/userSignUp';
+import logInUser from '../data-api/logInUser';
+import logOutUser from '../data-api/logOutUser';
+import signUpUser from '../data-api/signUpUser';
 
 const initialState = {};
 

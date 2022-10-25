@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Footer from './Footer';
 import Logo from './Logo';
+import LogOut from './LogOut';
 
 const Navbar = (props) => {
   const { open } = props;
@@ -21,6 +22,9 @@ const Navbar = (props) => {
         </li>
         <li>
           <NavLink to="add_car">Add Car</NavLink>
+        </li>
+        <li>
+          <LogOut />
         </li>
       </ul>
       <Footer />

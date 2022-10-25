@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
-import signUpUser from '../../data-api/userSignUp';
+import signUpUser from '../../data-api/signUpUser';
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function SignUp() {
       if (user.user.error) {
         setErrorMessage(user.user.error);
       } else {
-        navigate('/log_in');
+        navigate('/add_car');
       }
     }
   }, [user.status]);

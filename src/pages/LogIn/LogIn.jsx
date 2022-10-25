@@ -3,7 +3,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import logInUser from '../../data-api/userLogIn';
+import logInUser from '../../data-api/logInUser';
 
 export default function LogIn() {
   const navigate = useNavigate();
