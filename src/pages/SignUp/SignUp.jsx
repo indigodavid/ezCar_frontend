@@ -31,7 +31,6 @@ export default function SignUp() {
     };
     dispatch(signUpUser(userInfo));
   };
-
   useEffect(() => {
     if (user.status === 'success') {
       if (user.user.error) {
