@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import logInUser from '../../data-api/userLogIn';
@@ -10,6 +10,7 @@ export default function LogIn() {
   const dispatch = useDispatch();
   const formRef = useRef();
   const user = useSelector((state) => state.user);
+  const [errorMessage, setErrorMessage] = useState('');
   console.log(user);
 
   const handleSubmit = (e) => {
@@ -25,6 +26,7 @@ export default function LogIn() {
     if (user.status === 'success') {
       if (user.user.error) {
         navigate('/');
+        setErrorMessage(user.user.error);
       } else {
         navigate('/add_car');
       }
@@ -33,6 +35,9 @@ export default function LogIn() {
 
   return (
     <form ref={formRef} className="add-form" onSubmit={handleSubmit}>
+      {errorMessage && (
+        <div className="alert">{errorMessage}</div>
+      )}
       <div className="relative z-0 mb-6 w-fit group">
         <input
           type="email"
