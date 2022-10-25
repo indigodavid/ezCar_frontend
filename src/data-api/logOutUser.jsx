@@ -5,13 +5,13 @@ const logOutUser = createAsyncThunk('LOG_OUT', async (userinfo) => {
   const response = await fetch(`${BASE_URL + LOG_OUT}`, {
     method: 'delete',
     headers: {
-      'content-type': 'application/json',
-      authorization: localStorage.getItem('token'),
+      'Content-Type': 'application/json',
+      Authorization: localStorage.getItem('token'),
     },
     body: JSON.stringify(userinfo),
   });
-  localStorage.removeItem('token');
   const data = await response.json();
+  localStorage.removeItem('token');
   return data;
 });
 
