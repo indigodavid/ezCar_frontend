@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp/SignUp';
 import Splash from './pages/Splash';
 import PrivateRoutes from './components/PrivateRoutes';
 import AddCarForm from './pages/AddCar/AddCarForm';
+import Cars from './pages/Cars';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -27,7 +28,7 @@ function App() {
             <PrivateRoutes>
               <AddCarForm />
             </PrivateRoutes>
-)}
+          )}
         />
         <Route
           path="/reservation"
@@ -35,7 +36,15 @@ function App() {
             <PrivateRoutes>
               <Reservation />
             </PrivateRoutes>
-)}
+          )}
+        />
+        <Route
+          path="/cars"
+          element={(
+            <PrivateRoutes>
+              <Cars />
+            </PrivateRoutes>
+          )}
         />
       </Routes>
     </div>
