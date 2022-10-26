@@ -33,19 +33,21 @@ export default function SignUp() {
   };
   useEffect(() => {
     if (user.status === 'success') {
-      if (user.user.error) {
-        setErrorMessage(user.user.error);
-      } else {
-        navigate('/add_car');
+      try {
+        if (user.user.error) {
+          setErrorMessage(user.user.error);
+        } else {
+          navigate('/add_car');
+        }
+      } catch (e) {
+        setErrorMessage(e.error);
       }
     }
-  }, [navigate, user.status, user.user.error]);
+  }, [navigate, user]);
 
   return (
     <form ref={formRef} className="add-form" onSubmit={handleSubmit}>
-      {errorMessage && (
-        <div className="alert">{errorMessage}</div>
-      )}
+      {errorMessage && <div className="alert">{errorMessage}</div>}
       <div className="relative z-0 mb-6 w-fit group">
         <input
           type="name"
