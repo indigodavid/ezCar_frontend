@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL, LOG_IN } from './routes';
 
 const tokenLogger = createAsyncThunk('TOKEN', async () => {
-  console.log('Hello Token Logger');
   const token = localStorage.getItem('token');
 
   if (token) {

@@ -14,7 +14,6 @@ export default function SignUp() {
   const user = useSelector((state) => state.user);
   const [errorMessage, setErrorMessage] = useState('');
   const [selectedDay, setSelectedDay] = useState(null);
-  console.log(selectedDay);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +31,7 @@ export default function SignUp() {
     };
     dispatch(signUpUser(userInfo));
   };
-  console.log(user);
+
   useEffect(() => {
     if (user.status === 'success') {
       if (user.user.error) {
@@ -41,7 +40,7 @@ export default function SignUp() {
         navigate('/add_car');
       }
     }
-  }, [user.status]);
+  }, [navigate, user.status, user.user.error]);
 
   return (
     <form ref={formRef} className="add-form" onSubmit={handleSubmit}>

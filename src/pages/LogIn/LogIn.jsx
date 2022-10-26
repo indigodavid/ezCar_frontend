@@ -11,7 +11,6 @@ export default function LogIn() {
   const formRef = useRef();
   const user = useSelector((state) => state.user);
   const [errorMessage, setErrorMessage] = useState('');
-  console.log(user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,16 +21,20 @@ export default function LogIn() {
     };
     dispatch(logInUser(userInfo));
   };
+
   useEffect(() => {
     if (user.status === 'success') {
-      if (user.user.error) {
-        navigate('/');
-        setErrorMessage(user.user.error);
-      } else {
-        navigate('/add_car');
+      try {
+        if (user.user.error) {
+          setErrorMessage(user.user.error);
+        } else {
+          navigate('/add_car');
+        }
+      } catch (e) {
+        setErrorMessage(e.error);
       }
     }
-  }, [user.status]);
+  }, [navigate, user]);
 
   return (
     <form ref={formRef} className="add-form" onSubmit={handleSubmit}>
