@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import logInUser from '../data-api/logInUser';
 import logOutUser from '../data-api/logOutUser';
 import signUpUser from '../data-api/signUpUser';
+import tokenLogger from '../data-api/tokenLogger';
 
 const initialState = {};
 
@@ -32,6 +33,15 @@ const userSlice = createSlice({
       ...state,
       status: 'success',
       user: action.payload,
+    }));
+    builder.addCase(tokenLogger.fulfilled, (state, action) => ({
+      ...state,
+      status: 'success',
+      user: action.payload,
+    }));
+    builder.addCase(tokenLogger.rejected, (state) => ({
+      ...state,
+      status: 'failed token authentication',
     }));
   },
 });
