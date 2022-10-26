@@ -11,6 +11,7 @@ import Cars from './pages/Cars';
 
 function App() {
   const [open, setOpen] = useState(false);
+
   const toggleMenu = () => {
     setOpen(!open);
   };
