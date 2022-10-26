@@ -25,7 +25,7 @@ function Cars() {
   };
   return (
     <div className=" px-4 md:px-16">
-      <div className="flex flex-col items-center justify-center my-16">
+      <div className="flex flex-col items-center justify-center my-16 md:mb-32">
         <h1 className=" text-4xl font-bold text-center">
           Latest Model Cars Available.
         </h1>
@@ -33,15 +33,67 @@ function Cars() {
           Please select your car for reservation.
         </p>
       </div>
-      <Carousel responsive={responsive}>
+      <Carousel responsive={responsive} autoPlay autoPlaySpeed={6000}>
         <div>
-          <CarCard />
+          <CarCard
+            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+            name="Hyundai Venue"
+            carType="Kia Sonet"
+            carBrand="Hyundai"
+            carPrice="40000"
+            carColor="Red"
+          />
         </div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
-        <div>Item 5</div>
-        <div>Item 6</div>
+        <div>
+          <CarCard
+            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+            name="Hyundai Venue"
+            carType="Kia Sonet"
+            carBrand="Hyundai"
+            carPrice="40000"
+            carColor="Red"
+          />
+        </div>
+        <div>
+          <CarCard
+            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+            name="Hyundai Venue"
+            carType="Kia Sonet"
+            carBrand="Hyundai"
+            carPrice="40000"
+            carColor="Red"
+          />
+        </div>
+        <div>
+          <CarCard
+            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+            name="Hyundai Venue"
+            carType="Kia Sonet"
+            carBrand="Hyundai"
+            carPrice="40000"
+            carColor="Red"
+          />
+        </div>
+        <div>
+          <CarCard
+            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+            name="Hyundai Venue"
+            carType="Kia Sonet"
+            carBrand="Hyundai"
+            carPrice="40000"
+            carColor="Red"
+          />
+        </div>
+        <div>
+          <CarCard
+            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+            name="Hyundai Venue"
+            carType="Kia Sonet"
+            carBrand="Hyundai"
+            carPrice="40000"
+            carColor="Red"
+          />
+        </div>
       </Carousel>
     </div>
   );
