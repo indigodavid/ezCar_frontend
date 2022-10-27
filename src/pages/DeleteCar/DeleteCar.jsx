@@ -8,7 +8,97 @@ export default function DeleteCar() {
         <h1 className=" text-4xl font-bold text-center">Available Cars.</h1>
         <p className=" text-xs text-slate-400">Lists of all cars for delete</p>
       </div>
-      <div className="grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid gap-4 grid-cols-responsive">
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
+        <CarCard
+          id={1}
+          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
+          name="Hyundai Venue"
+          carType="Kia Sonet"
+          carBrand="Hyundai"
+          carPrice="40000"
+          carColor="Red"
+          deleteCar
+        />
         <CarCard
           id={1}
           img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
