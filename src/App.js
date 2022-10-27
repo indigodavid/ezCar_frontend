@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Reservation from './pages/Reservation';
 import MenuOpener from './components/MenuOpener';
 import Navbar from './components/Navbar';
@@ -11,6 +11,7 @@ import Cars from './pages/Cars';
 
 function App() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -18,8 +19,13 @@ function App() {
 
   return (
     <div>
-      <MenuOpener open={open} toggleMenu={toggleMenu} />
-      <Navbar open={open} />
+      { (location.pathname !== '/' && location.pathname !== '/sign_up')
+        && (
+        <>
+          <MenuOpener open={open} toggleMenu={toggleMenu} />
+          <Navbar open={open} />
+        </>
+        )}
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/sign_up" element={<SignUp />} />
