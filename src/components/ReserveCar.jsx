@@ -105,7 +105,7 @@ function ReserveCar(props) {
           </div>
           <button
             type="submit"
-            className=" self-end focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-fit sm:w-auto px-5 py-2.5 text-center submit-button"
+            className=" self-end submit-button"
           >
             Submit
           </button>
