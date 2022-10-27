@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import signUpUser from '../../data-api/signUpUser';
@@ -153,6 +153,7 @@ export default function SignUp() {
           >
             Submit
           </button>
+          <Link to="/" className="mt-3 underline">Back to Home</Link>
         </form>
       </div>
     </div>
