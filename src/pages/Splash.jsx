@@ -1,11 +1,14 @@
 import React from 'react';
+import Logo from '../components/Logo';
 import LogIn from './LogIn/LogIn';
 
 function Splash() {
   return (
-    <div>
-      <h1>This is a Splash page</h1>
-      <LogIn />
+    <div className="splash">
+      <div className="overlay">
+        <Logo extraClasses="flex flex-col items-center aspect-square rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 text-white shadow-md text-4xl p-9" />
+        <LogIn />
+      </div>
     </div>
   );
 }
