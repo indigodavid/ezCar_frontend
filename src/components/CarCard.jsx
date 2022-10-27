@@ -13,6 +13,7 @@ function CarCard(props) {
     carColor,
     reservationDate,
     reservation,
+    deleteCar,
   } = props;
   const date = new Date();
   const reservationLink = `reservation/${id}`;
@@ -30,8 +31,12 @@ function CarCard(props) {
           {carBrand}
           )
         </h1>
-        <p className=" text-sm">{carType}</p>
-        <p className=" text-xs">{carColor}</p>
+        {!deleteCar && (
+          <p className=" text-sm">{carType}</p>
+        )}
+        {!deleteCar && (
+          <p className=" text-xs">{carColor}</p>
+        )}
         {reservation && (
           <div
             className={
@@ -43,13 +48,17 @@ function CarCard(props) {
             <p>{reservationDate}</p>
           </div>
         )}
-
-        {!reservation && (
+        {!reservation && !deleteCar && (
           <p className="self-end py-2 px-2 bg-lime-500 rounded-full my-4">
             $
             {carPrice}
             /day
           </p>
+        )}
+        { deleteCar && (
+        <button className=" bg-red-400 self-stretch p-2 rounded-full mt-4 hover:bg-red-600 active:bg-red-200" type="button">
+          Delete Car
+        </button>
         )}
       </div>
     </Link>
@@ -68,9 +77,11 @@ CarCard.propTypes = {
   carColor: PropTypes.string.isRequired,
   reservationDate: PropTypes.string,
   reservation: PropTypes.bool,
+  deleteCar: PropTypes.bool,
 };
 
 CarCard.defaultProps = {
   reservationDate: String(Date.now()),
   reservation: false,
+  deleteCar: false,
 };
