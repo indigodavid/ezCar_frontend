@@ -45,17 +45,17 @@ function App() {
           element={(
             <PrivateRoutes>
               <DeleteCar />
-          </PrivateRoutes>
+            </PrivateRoutes>
           )}
         />
-          <Route
+        <Route
           path="/cars"
           element={(
             <PrivateRoutes>
               <Cars />
             </PrivateRoutes>
           )}
-          />
+        />
         <Route
           path="/cars/reservation/:id"
           element={(
