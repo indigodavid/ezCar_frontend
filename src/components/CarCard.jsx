@@ -17,13 +17,6 @@ function CarCard(props) {
   const today = [date.getFullYear(), date.getMonth() + 1, date.getDate()].join(
     '-',
   );
-  console.log(today);
-
-  if (today > reservationDate) {
-    console.log('Date Passed');
-  } else {
-    console.log('Date to come');
-  }
   return (
     <div className="w-full flex flex-col justify-center items-center px-2">
       <img src={img} alt="Swift Car" className="flex-1" />
