@@ -6,6 +6,10 @@ button.submit-button {
   @apply bg-lime-400 text-white focus:ring-4 focus:outline-none font-bold rounded-lg text-sm w-fit sm:w-auto px-5 py-2.5 shadow-md text-center;
 }
 
+a.submit-button {
+  @apply bg-yellow-400 text-white focus:ring-4 focus:outline-none font-bold rounded-lg text-sm w-fit sm:w-auto px-5 py-2.5 shadow-md text-center;
+}
+
 .add-car-wrapper {
   @apply bg-[url('https://images.unsplash.com/photo-1591293835940-934a7c4f2d9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format')] bg-cover bg-center w-screen h-screen;
 }
