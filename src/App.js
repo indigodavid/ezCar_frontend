@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Reservation from './pages/Reservation';
 import MenuOpener from './components/MenuOpener';
 import Navbar from './components/Navbar';
@@ -9,9 +9,12 @@ import PrivateRoutes from './components/PrivateRoutes';
 import AddCarForm from './pages/AddCar/AddCarForm';
 import Cars from './pages/Cars';
 import DeleteCar from './pages/DeleteCar/DeleteCar';
+import MyReservations from './pages/MyReservations';
+import Reserve from './pages/Reserve';
 
 function App() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -19,8 +22,13 @@ function App() {
 
   return (
     <div>
-      <MenuOpener open={open} toggleMenu={toggleMenu} />
-      <Navbar open={open} />
+      { (location.pathname !== '/' && location.pathname !== '/sign_up')
+        && (
+        <>
+          <MenuOpener open={open} toggleMenu={toggleMenu} />
+          <Navbar open={open} />
+        </>
+        )}
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/sign_up" element={<SignUp />} />
@@ -37,11 +45,19 @@ function App() {
           element={(
             <PrivateRoutes>
               <DeleteCar />
-            </PrivateRoutes>
+          </PrivateRoutes>
           )}
         />
+          <Route
+          path="/cars"
+          element={(
+            <PrivateRoutes>
+              <Cars />
+            </PrivateRoutes>
+          )}
+          />
         <Route
-          path="/reservation"
+          path="/cars/reservation/:id"
           element={(
             <PrivateRoutes>
               <Reservation />
@@ -49,10 +65,26 @@ function App() {
           )}
         />
         <Route
-          path="/cars"
+          path="/reserve"
           element={(
             <PrivateRoutes>
-              <Cars />
+              <Reserve />
+            </PrivateRoutes>
+          )}
+        />
+        <Route
+          path="/my_reservations"
+          element={(
+            <PrivateRoutes>
+              <MyReservations />
+            </PrivateRoutes>
+          )}
+        />
+        <Route
+          path="/my_reservations/reservation/:id"
+          element={(
+            <PrivateRoutes>
+              <Reservation />
             </PrivateRoutes>
           )}
         />
