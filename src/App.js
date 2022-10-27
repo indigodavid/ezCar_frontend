@@ -8,6 +8,7 @@ import Splash from './pages/Splash';
 import PrivateRoutes from './components/PrivateRoutes';
 import AddCarForm from './pages/AddCar/AddCarForm';
 import Cars from './pages/Cars';
+import DeleteCar from './pages/DeleteCar/DeleteCar';
 import MyReservations from './pages/MyReservations';
 import Reserve from './pages/Reserve';
 
@@ -36,6 +37,14 @@ function App() {
           element={(
             <PrivateRoutes>
               <AddCarForm />
+            </PrivateRoutes>
+          )}
+        />
+        <Route
+          path="/delete_car"
+          element={(
+            <PrivateRoutes>
+              <DeleteCar />
             </PrivateRoutes>
           )}
         />
