@@ -25,7 +25,7 @@ function Cars() {
   };
   return (
     <div className=" px-4 md:px-16">
-      <div className="flex flex-col items-center justify-center my-16 md:mb-32">
+      <div className="flex flex-col items-center justify-center py-16 md:pb-32">
         <h1 className=" text-4xl font-bold text-center">
           Latest Model Cars Available.
         </h1>

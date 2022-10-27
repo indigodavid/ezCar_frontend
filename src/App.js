@@ -8,6 +8,7 @@ import Splash from './pages/Splash';
 import PrivateRoutes from './components/PrivateRoutes';
 import AddCarForm from './pages/AddCar/AddCarForm';
 import Cars from './pages/Cars';
+import MyReservations from './pages/MyReservations';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -44,6 +45,14 @@ function App() {
           element={(
             <PrivateRoutes>
               <Cars />
+            </PrivateRoutes>
+          )}
+        />
+        <Route
+          path="/my_reservations"
+          element={(
+            <PrivateRoutes>
+              <MyReservations />
             </PrivateRoutes>
           )}
         />
