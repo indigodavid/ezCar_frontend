@@ -24,6 +24,9 @@ const Navbar = (props) => {
           <NavLink to="add_car">Add Car</NavLink>
         </li>
         <li>
+          <NavLink to="delete_car">Delete Car</NavLink>
+        </li>
+        <li>
           <LogOut />
         </li>
       </ul>
