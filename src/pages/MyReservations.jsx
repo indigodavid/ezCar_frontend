@@ -10,6 +10,7 @@ function MyReservations() {
       </div>
       <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4">
         <CarCard
+          id={1}
           img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
           name="Hyundai Venue"
           carType="Kia Sonet"
@@ -20,6 +21,7 @@ function MyReservations() {
           reservationDate="2022-05-23"
         />
         <CarCard
+          id={2}
           img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
           name="Hyundai Venue"
           carType="Kia Sonet"
@@ -30,6 +32,7 @@ function MyReservations() {
           reservationDate="2022-05-23"
         />
         <CarCard
+          id={3}
           img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
           name="Hyundai Venue"
           carType="Kia Sonet"
@@ -40,6 +43,7 @@ function MyReservations() {
           reservationDate="2022-12-23"
         />
         <CarCard
+          id={4}
           img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
           name="Hyundai Venue"
           carType="Kia Sonet"

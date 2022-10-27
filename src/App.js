@@ -65,6 +65,14 @@ function App() {
             </PrivateRoutes>
           )}
         />
+        <Route
+          path="/my_reservations/reservation/:id"
+          element={(
+            <PrivateRoutes>
+              <Reservation />
+            </PrivateRoutes>
+          )}
+        />
       </Routes>
     </div>
   );

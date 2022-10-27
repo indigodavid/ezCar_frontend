@@ -66,11 +66,11 @@ CarCard.propTypes = {
   carBrand: PropTypes.string.isRequired,
   carPrice: PropTypes.string.isRequired,
   carColor: PropTypes.string.isRequired,
-  reservationDate: PropTypes.number,
+  reservationDate: PropTypes.string,
   reservation: PropTypes.bool,
 };
 
 CarCard.defaultProps = {
-  reservationDate: Date.now(),
+  reservationDate: String(Date.now()),
   reservation: false,
 };
