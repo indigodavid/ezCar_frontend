@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import getReservations from '../data-api/getReservation';
+import addReservations from '../data-api/addReservation';
 
 const initialState = {
   status: 'idle',
@@ -21,6 +22,19 @@ const reservationSlice = createSlice({
       status: 'loading',
     }));
     builder.addCase(getReservations.rejected, (state) => ({
+      ...state,
+      status: 'failed',
+    }));
+    builder.addCase(addReservations.fulfilled, (state, action) => ({
+      ...state,
+      status: 'success',
+      reservation: [...state.reservation, action.payload],
+    }));
+    builder.addCase(addReservations.pending, (state) => ({
+      ...state,
+      status: 'loading',
+    }));
+    builder.addCase(addReservations.rejected, (state) => ({
       ...state,
       status: 'failed',
     }));
