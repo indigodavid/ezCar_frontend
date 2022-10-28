@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CarCard from '../components/CarCard';
 import getCars from '../data-api/getCars';
 
 function Cars() {
   const dispatch = useDispatch();
+  const { cars } = useSelector((state) => state.cars);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -41,73 +42,21 @@ function Cars() {
           Please select your car for reservation.
         </p>
       </div>
-      <Carousel responsive={responsive} autoPlay autoPlaySpeed={6000}>
-        <div>
-          <CarCard
-            id={1}
-            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-            name="Hyundai Venue"
-            carType="Kia Sonet"
-            carBrand="Hyundai"
-            carPrice="40000"
-            carColor="Red"
-          />
-        </div>
-        <div>
-          <CarCard
-            id={2}
-            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-            name="Hyundai Venue"
-            carType="Kia Sonet"
-            carBrand="Hyundai"
-            carPrice="40000"
-            carColor="Red"
-          />
-        </div>
-        <div>
-          <CarCard
-            id={3}
-            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-            name="Hyundai Venue"
-            carType="Kia Sonet"
-            carBrand="Hyundai"
-            carPrice="40000"
-            carColor="Red"
-          />
-        </div>
-        <div>
-          <CarCard
-            id={4}
-            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-            name="Hyundai Venue"
-            carType="Kia Sonet"
-            carBrand="Hyundai"
-            carPrice="40000"
-            carColor="Red"
-          />
-        </div>
-        <div>
-          <CarCard
-            id={5}
-            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-            name="Hyundai Venue"
-            carType="Kia Sonet"
-            carBrand="Hyundai"
-            carPrice="40000"
-            carColor="Red"
-          />
-        </div>
-        <div>
-          <CarCard
-            id={6}
-            img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-            name="Hyundai Venue"
-            carType="Kia Sonet"
-            carBrand="Hyundai"
-            carPrice="40000"
-            carColor="Red"
-          />
-        </div>
+      <Carousel responsive={responsive}>
+        {cars.map((car) => (
+          <div key={car.id}>
+            <CarCard
+              key={car.id}
+              id={car.id}
+              img={car.image}
+              name={car.name}
+              carType={car.car_type}
+              carBrand={car.brand}
+              carPrice={car.fee_per_day}
+              carColor={car.color}
+            />
+          </div>
+        ))}
       </Carousel>
     </div>
   );

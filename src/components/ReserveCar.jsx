@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-// import { Calendar, utils } from 'react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker';
 
@@ -10,9 +8,11 @@ import CloseIcon from '@mui/icons-material/Close';
 
 function ReserveCar(props) {
   const current = new Date();
+
   const {
     name, carType, carPrice, ReserveOpener, handleClick,
   } = props;
+
   const defaultFrom = {
     year: current.getFullYear(),
     month: current.getMonth() + 1,
@@ -120,7 +120,7 @@ export default ReserveCar;
 ReserveCar.propTypes = {
   name: PropTypes.string.isRequired,
   carType: PropTypes.string.isRequired,
-  carPrice: PropTypes.string.isRequired,
+  carPrice: PropTypes.number.isRequired,
   ReserveOpener: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
