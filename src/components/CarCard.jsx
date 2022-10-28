@@ -23,7 +23,7 @@ function CarCard(props) {
   return (
     <Link to={reservationLink}>
       <div className="w-full flex flex-col justify-center items-center px-2">
-        <img src={img} alt="Swift Car" className="flex-1" />
+        <img src={img} alt={name} className="flex-1" />
         <h1 className=" text-xl">
           {name}
           {' '}
@@ -31,12 +31,8 @@ function CarCard(props) {
           {carBrand}
           )
         </h1>
-        {!deleteCar && (
-          <p className=" text-sm">{carType}</p>
-        )}
-        {!deleteCar && (
-          <p className=" text-xs">{carColor}</p>
-        )}
+        {!deleteCar && <p className=" text-sm">{carType}</p>}
+        {!deleteCar && <p className=" text-xs">{carColor}</p>}
         {reservation && (
           <div
             className={
@@ -55,10 +51,13 @@ function CarCard(props) {
             /day
           </p>
         )}
-        { deleteCar && (
-        <button className=" bg-red-400 self-stretch p-2 rounded-full mt-4 hover:bg-red-600 active:bg-red-200" type="button">
-          Delete Car
-        </button>
+        {deleteCar && (
+          <button
+            className=" bg-red-400 self-stretch p-2 rounded-full mt-4 hover:bg-red-600 active:bg-red-200"
+            type="button"
+          >
+            Delete Car
+          </button>
         )}
       </div>
     </Link>
@@ -73,7 +72,7 @@ CarCard.propTypes = {
   name: PropTypes.string.isRequired,
   carType: PropTypes.string.isRequired,
   carBrand: PropTypes.string.isRequired,
-  carPrice: PropTypes.string.isRequired,
+  carPrice: PropTypes.number.isRequired,
   carColor: PropTypes.string.isRequired,
   reservationDate: PropTypes.string,
   reservation: PropTypes.bool,
