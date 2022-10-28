@@ -35,7 +35,7 @@ function App() {
         <Route
           path="/add_car"
           element={(
-            <PrivateRoutes>
+            <PrivateRoutes requiresAdmin>
               <AddCarForm />
             </PrivateRoutes>
           )}
@@ -43,7 +43,7 @@ function App() {
         <Route
           path="/delete_car"
           element={(
-            <PrivateRoutes>
+            <PrivateRoutes requiresAdmin>
               <DeleteCar />
             </PrivateRoutes>
           )}
