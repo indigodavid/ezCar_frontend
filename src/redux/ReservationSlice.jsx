@@ -14,7 +14,7 @@ const reservationSlice = createSlice({
     builder.addCase(getReservations.fulfilled, (state, action) => ({
       ...state,
       status: 'success',
-      cars: action.payload,
+      reservation: action.payload,
     }));
     builder.addCase(getReservations.pending, (state) => ({
       ...state,
