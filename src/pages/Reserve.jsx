@@ -1,11 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import RadioInput from '../components/RadioInput';
+import getCars from '../data-api/getCars';
 
 function Reserve() {
+  const dispatch = useDispatch();
+  const { cars } = useSelector((state) => state.cars);
+
   const current = new Date();
   const defaultFrom = {
     year: current.getFullYear(),
@@ -24,6 +29,10 @@ function Reserve() {
   };
   const [selectedDayRange, setSelectedDayRange] = useState(defaultRange);
 
+  useEffect(() => {
+    dispatch(getCars());
+  }, [dispatch]);
+
   return (
     <div className="pb-8">
       <div className="flex flex-col items-center justify-center py-16 md:pb-32">
@@ -37,18 +46,15 @@ function Reserve() {
           Which Car do you want to reserve?
         </h3>
         <ul className="grid gap-6 w-full md:grid-cols-2">
-          <RadioInput
-            id={1}
-            name="Hyundai Venue"
-            carType="Kia Sonet"
-            carPrice="40"
-          />
-          <RadioInput
-            id={2}
-            name="Hyundai 2"
-            carType="Kia Sonet"
-            carPrice="40"
-          />
+          {cars.map((car) => (
+            <RadioInput
+              key={car.id}
+              id={car.id}
+              name={car.name}
+              carType={car.car_type}
+              carPrice={car.fee_per_day}
+            />
+          ))}
         </ul>
         <div className=" self-center mt-4">
           <Calendar
