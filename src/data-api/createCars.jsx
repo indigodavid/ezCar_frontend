@@ -19,5 +19,4 @@ const createCars = createAsyncThunk('cars/CREATE', async (carInfo) => {
   return [];
 });
 
-
 export default createCars;
