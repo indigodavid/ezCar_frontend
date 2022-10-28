@@ -120,7 +120,7 @@ export default ReserveCar;
 ReserveCar.propTypes = {
   name: PropTypes.string.isRequired,
   carType: PropTypes.string.isRequired,
-  carPrice: PropTypes.string.isRequired,
+  carPrice: PropTypes.number.isRequired,
   ReserveOpener: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
