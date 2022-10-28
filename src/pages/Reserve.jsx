@@ -2,15 +2,18 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import RadioInput from '../components/RadioInput';
 import getCars from '../data-api/getCars';
+import addReservations from '../data-api/addReservation';
 
 function Reserve() {
   const dispatch = useDispatch();
   const { cars } = useSelector((state) => state.cars);
   const formRef = useRef();
+  const navigate = useNavigate();
 
   const current = new Date();
   const defaultFrom = {
@@ -46,7 +49,8 @@ function Reserve() {
       due_date: dueDate,
       car_id: data.carRental,
     };
-    console.log(reservationInfo);
+    dispatch(addReservations(reservationInfo));
+    navigate('/cars');
   };
   return (
     <div className="pb-8">
