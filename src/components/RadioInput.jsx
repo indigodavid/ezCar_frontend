@@ -12,7 +12,7 @@ function RadioInput(props) {
       <input
         type="radio"
         id={id}
-        name="car-rental"
+        name="carRental"
         value={id}
         className="hidden peer"
         required
@@ -54,5 +54,5 @@ RadioInput.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   carType: PropTypes.string.isRequired,
-  carPrice: PropTypes.string.isRequired,
+  carPrice: PropTypes.number.isRequired,
 };
