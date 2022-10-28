@@ -24,14 +24,14 @@ function Reserve() {
   const [selectedDayRange, setSelectedDayRange] = useState(defaultRange);
 
   return (
-    <div>
+    <div className="pb-8">
       <div className="flex flex-col items-center justify-center py-16 md:pb-32">
         <h1 className=" text-4xl font-bold text-center">Reserve Cars.</h1>
         <p className=" text-xs text-slate-400">
           Please Select a car to reserve form the provided lists.
         </p>
       </div>
-      <form className=" px-8">
+      <form className=" px-8 flex flex-col">
         <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white">
           Which Car do you want to reserve?
         </h3>
@@ -100,12 +100,14 @@ function Reserve() {
             </label>
           </li>
         </ul>
-        <Calendar
-          value={selectedDayRange}
-          onChange={setSelectedDayRange}
-          shouldHighlightWeekends
-          minimumDate={utils().getToday()}
-        />
+        <div className=" self-center mt-4">
+          <Calendar
+            value={selectedDayRange}
+            onChange={setSelectedDayRange}
+            shouldHighlightWeekends
+            minimumDate={utils().getToday()}
+          />
+        </div>
       </form>
     </div>
   );

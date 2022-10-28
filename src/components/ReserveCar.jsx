@@ -8,9 +8,11 @@ import CloseIcon from '@mui/icons-material/Close';
 
 function ReserveCar(props) {
   const current = new Date();
+
   const {
     name, carType, carPrice, ReserveOpener, handleClick,
   } = props;
+
   const defaultFrom = {
     year: current.getFullYear(),
     month: current.getMonth() + 1,
