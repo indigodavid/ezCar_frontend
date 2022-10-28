@@ -1,9 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL, CARS } from './routes';
 
-const getCars = createAsyncThunk('LOG_IN', async () => {
+const getCars = createAsyncThunk('cars/GET', async () => {
   const token = localStorage.getItem('token');
-  console.log(token);
   if (token) {
     const response = await fetch(`${BASE_URL + CARS}`, {
       method: 'GET',
