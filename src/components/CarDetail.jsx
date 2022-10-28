@@ -20,11 +20,8 @@ function CarDetail({
     toggleReservation();
   };
 
-  console.log('CarDetail: ');
-  console.log(id);
-
   return (
-    <div className=" pr-8 flex flex-col md:w-96">
+    <div className=" pr-8 flex flex-col md:w-96" key={id}>
       <h1 className=" self-end text-2xl">{name}</h1>
       <p className="self-end pb-8">{carType}</p>
       <div className=" py-2 px-2 bg-slate-400 mb-3 flex justify-between">
