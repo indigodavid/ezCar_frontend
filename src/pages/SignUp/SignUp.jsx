@@ -37,7 +37,7 @@ export default function SignUp() {
         if (user.user.error) {
           setErrorMessage(user.user.error);
         } else {
-          navigate('/add_car');
+          navigate('/cars');
         }
       } catch (e) {
         setErrorMessage(e.error);
