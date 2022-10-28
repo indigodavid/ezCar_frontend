@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-// import { Calendar, utils } from 'react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker';
 

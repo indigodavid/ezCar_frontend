@@ -1,8 +1,28 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React from 'react';
+import React, { useState } from 'react';
+import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
+import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker';
 
 function Reserve() {
+  const current = new Date();
+  const defaultFrom = {
+    year: current.getFullYear(),
+    month: current.getMonth() + 1,
+    day: current.getDate(),
+  };
+
+  const defaultTo = {
+    year: current.getFullYear(),
+    month: current.getMonth() + 1,
+    day: current.getDate(),
+  };
+  const defaultRange = {
+    from: defaultFrom,
+    to: defaultTo,
+  };
+  const [selectedDayRange, setSelectedDayRange] = useState(defaultRange);
+
   return (
     <div>
       <div className="flex flex-col items-center justify-center py-16 md:pb-32">
@@ -80,6 +100,12 @@ function Reserve() {
             </label>
           </li>
         </ul>
+        <Calendar
+          value={selectedDayRange}
+          onChange={setSelectedDayRange}
+          shouldHighlightWeekends
+          minimumDate={utils().getToday()}
+        />
       </form>
     </div>
   );
