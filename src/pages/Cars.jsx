@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useDispatch } from 'react-redux';
 import CarCard from '../components/CarCard';
+import getCars from '../data-api/getCars';
 
 function Cars() {
+  const dispatch = useDispatch();
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -23,6 +26,11 @@ function Cars() {
       items: 1,
     },
   };
+
+  useEffect(() => {
+    dispatch(getCars());
+  }, [dispatch]);
+
   return (
     <div className=" px-4 md:px-16">
       <div className="flex flex-col items-center justify-center py-16 md:pb-32">
