@@ -12,7 +12,6 @@ function CarDetail({
   carBrand,
   carPrice,
   carColor,
-  dueDate,
   toggleReservation,
   ReserveOpener,
 }) {
@@ -32,12 +31,6 @@ function CarDetail({
         </p>
       </div>
       <p className=" text-sm self-end">{carColor}</p>
-
-      <p className=" text-xs self-end">
-        Rented untill
-        {' '}
-        {dueDate}
-      </p>
       <div className="btn-primary mt-8 flex items-center justify-center md:self-start">
         <SettingsIcon />
         <button type="button" className=" px-4" onClick={handleClick}>
@@ -63,9 +56,8 @@ CarDetail.propTypes = {
   name: PropTypes.string.isRequired,
   carType: PropTypes.string.isRequired,
   carBrand: PropTypes.string.isRequired,
-  carPrice: PropTypes.string.isRequired,
+  carPrice: PropTypes.number.isRequired,
   carColor: PropTypes.string.isRequired,
-  dueDate: PropTypes.string.isRequired,
   toggleReservation: PropTypes.func.isRequired,
   ReserveOpener: PropTypes.bool.isRequired,
 };
