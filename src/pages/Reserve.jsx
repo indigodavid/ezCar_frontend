@@ -6,7 +6,6 @@ import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import RadioInput from '../components/RadioInput';
 import getCars from '../data-api/getCars';
-import 
 
 function Reserve() {
   const dispatch = useDispatch();
@@ -45,9 +44,9 @@ function Reserve() {
     const reservationInfo = {
       reservation_date: reservationDate,
       due_date: dueDate,
-      car_id: data.carRental
-    }
-    
+      car_id: data.carRental,
+    };
+    console.log(reservationInfo);
   };
   return (
     <div className="pb-8">
