@@ -24,7 +24,11 @@ function CarCard(props) {
   return (
     <Link to={reservationLink}>
       <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-3">
-        <img className="rounded-t-lg" src={img} alt={name} />
+        <img
+          className="rounded-t-lg object-cover w-full h-72"
+          src={img}
+          alt={name}
+        />
         <div className="p-5">
           <h1 className=" text-xl">
             {name}
