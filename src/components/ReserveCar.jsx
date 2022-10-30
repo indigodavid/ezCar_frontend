@@ -1,16 +1,22 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker';
 
 import CloseIcon from '@mui/icons-material/Close';
 
+import addReservations from '../data-api/addReservation';
+
 function ReserveCar(props) {
   const current = new Date();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
-    name, carType, carPrice, ReserveOpener, handleClick,
+    id, name, carType, carPrice, ReserveOpener, handleClick,
   } = props;
 
   const defaultFrom = {
@@ -53,9 +59,17 @@ function ReserveCar(props) {
     setTotal(value);
   }, [selectedDayRange, Total, carPrice]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // console.log(selectedDayRange);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const reservationDate = `${selectedDayRange.from.year}-${selectedDayRange.from.month}-${selectedDayRange.from.day}`;
+    const dueDate = `${selectedDayRange.to.year}-${selectedDayRange.to.month}-${selectedDayRange.to.day}`;
+    const reservationInfo = {
+      reservation_date: reservationDate,
+      due_date: dueDate,
+      car_id: id,
+    };
+    dispatch(addReservations(reservationInfo));
+    navigate('/cars');
   };
 
   return (
@@ -103,10 +117,7 @@ function ReserveCar(props) {
               {Total}
             </p>
           </div>
-          <button
-            type="submit"
-            className=" self-end submit-button"
-          >
+          <button type="submit" className=" self-end submit-button">
             Submit
           </button>
         </form>
@@ -118,6 +129,7 @@ function ReserveCar(props) {
 export default ReserveCar;
 
 ReserveCar.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   carType: PropTypes.string.isRequired,
   carPrice: PropTypes.number.isRequired,
