@@ -24,12 +24,16 @@ function Reservation() {
 
   return (
     <section
-      className="flex flex-col gap-3 justify-between md:flex-row p-4  md:p-8 md:pt-24 "
+      className="flex flex-col gap-3 items-center justify-between xl:flex-row p-4  md:p-8 md:pt-8 "
       id="Reservation"
     >
       {car && car.id && (
         <>
-          <img src={car.image} alt={car.name} className="flex-1 rounded-3xl" />
+          <img
+            src={car.image}
+            alt={car.name}
+            className="flex-1 rounded-3xl h-screen w-11/12 xl:w-full object-cover"
+          />
           <CarDetail
             id={Number(id)}
             name={car.name}
