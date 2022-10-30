@@ -39,6 +39,7 @@ function CarDetail({
         <ChevronRightOutlinedIcon />
       </div>
       <ReserveCar
+        id={id}
         name={name}
         carType={carType}
         carPrice={carPrice}
