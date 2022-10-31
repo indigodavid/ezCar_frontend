@@ -19,8 +19,6 @@ function MyReservations() {
     return filterdCar;
   };
 
-  car(1);
-
   return (
     <div className="pb-4">
       <div className="flex flex-col items-center justify-center py-16 md:pb-32">

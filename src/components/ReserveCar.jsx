@@ -69,7 +69,7 @@ function ReserveCar(props) {
       car_id: id,
     };
     dispatch(addReservations(reservationInfo));
-    navigate('/cars');
+    navigate('/my_reservations');
   };
 
   return (
