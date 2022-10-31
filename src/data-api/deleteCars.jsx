@@ -4,16 +4,19 @@ import { BASE_URL, CARS } from './routes';
 const deleteCars = createAsyncThunk('cars/DELETE', async (carId) => {
   const token = localStorage.getItem('token');
   if (token) {
-    const response = await fetch(`${BASE_URL + CARS}/${carId}`, {
-      method: 'DELETE',
-      headers: {
-        'content-type': 'application/json',
-        accept: 'application/json',
-        Authorization: token,
-      },
-    });
-    const car = await response.json();
-    return car;
+    try {
+      const response = await fetch(`${BASE_URL + CARS}/${carId}`, {
+        method: 'DELETE',
+        headers: {
+          'content-type': 'application/json',
+          accept: 'application/json',
+          Authorization: token,
+        },
+      });
+      return response.ok ? carId : null;
+    } catch (e) {
+      return e.errors;
+    }
   }
   return [];
 });
