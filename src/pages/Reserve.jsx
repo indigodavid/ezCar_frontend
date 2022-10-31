@@ -50,7 +50,7 @@ function Reserve() {
       car_id: data.carRental,
     };
     dispatch(addReservations(reservationInfo));
-    navigate('/cars');
+    navigate('/my_reservations');
   };
   return (
     <div className="pb-8">

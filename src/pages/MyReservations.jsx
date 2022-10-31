@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import CarCard from '../components/CarCard';
+import getCars from '../data-api/getCars';
+import getReservations from '../data-api/getReservation';
 
 function MyReservations() {
+  const dispatch = useDispatch();
+  const { reservation } = useSelector((state) => state.reservation);
+  const { cars } = useSelector((state) => state.cars);
+
+  useEffect(() => {
+    dispatch(getReservations());
+    dispatch(getCars());
+  }, [dispatch]);
+
+  const car = (id) => {
+    const filterdCar = cars.filter((car) => car.id === id);
+    return filterdCar;
+  };
+
+  car(1);
+
   return (
     <div className="pb-4">
       <div className="flex flex-col items-center justify-center py-16 md:pb-32">
@@ -9,50 +28,23 @@ function MyReservations() {
         <p className=" text-xs text-slate-400">Lists of all reservations.</p>
       </div>
       <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4">
-        <CarCard
-          id={1}
-          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-          name="Hyundai Venue"
-          carType="Kia Sonet"
-          carBrand="Hyundai"
-          carPrice="40"
-          carColor="Red"
-          reservation
-          reservationDate="2022-05-23"
-        />
-        <CarCard
-          id={2}
-          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-          name="Hyundai Venue"
-          carType="Kia Sonet"
-          carBrand="Hyundai"
-          carPrice="30"
-          carColor="Red"
-          reservation
-          reservationDate="2022-05-23"
-        />
-        <CarCard
-          id={3}
-          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-          name="Hyundai Venue"
-          carType="Kia Sonet"
-          carBrand="Hyundai"
-          carPrice="41"
-          carColor="Red"
-          reservation
-          reservationDate="2022-12-23"
-        />
-        <CarCard
-          id={4}
-          img="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75"
-          name="Hyundai Venue"
-          carType="Kia Sonet"
-          carBrand="Hyundai"
-          carPrice="100"
-          carColor="Red"
-          reservation
-          reservationDate="2022-11-23"
-        />
+        {reservation.map((res) => {
+          const reservedCar = car(res.car_id)[0];
+          return (
+            <CarCard
+              key={res.id}
+              id={reservedCar.id}
+              img={reservedCar.image}
+              name={reservedCar.name}
+              carType={reservedCar.car_type}
+              carBrand={reservedCar.brand}
+              carPrice={reservedCar.fee_per_day}
+              carColor={reservedCar.color}
+              reservation
+              reservationDate={res.reservation_date}
+            />
+          );
+        })}
       </div>
     </div>
   );
