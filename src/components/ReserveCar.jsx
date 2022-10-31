@@ -70,9 +70,6 @@ function ReserveCar(props) {
     };
     dispatch(addReservations(reservationInfo));
     navigate('/cars');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
   };
 
   return (
