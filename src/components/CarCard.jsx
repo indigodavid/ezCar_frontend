@@ -21,7 +21,7 @@ function CarCard(props) {
     deleteCar,
   } = props;
   const date = new Date();
-  const reservationLink = `reservation/${id}`;
+  const reservationLink = `/cars/reservation/${id}`;
   const today = [date.getFullYear(), date.getMonth() + 1, date.getDate()].join(
     '-',
   );

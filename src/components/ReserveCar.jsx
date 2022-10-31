@@ -55,7 +55,6 @@ function ReserveCar(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(selectedDayRange);
   };
 
   return (
