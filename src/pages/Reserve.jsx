@@ -13,6 +13,11 @@ function Reserve() {
   const dispatch = useDispatch();
   const { cars } = useSelector((state) => state.cars);
   const formRef = useRef();
+  const calRef = useRef(null);
+
+  const scrollPage = () => {
+    calRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   const navigate = useNavigate();
 
   const current = new Date();
@@ -76,10 +81,11 @@ function Reserve() {
               name={car.name}
               carType={car.car_type}
               carPrice={car.fee_per_day}
+              scrollPage={scrollPage}
             />
           ))}
         </ul>
-        <div className=" self-center mt-4">
+        <div className=" self-center mt-4" ref={calRef}>
           <Calendar
             value={selectedDayRange}
             onChange={setSelectedDayRange}

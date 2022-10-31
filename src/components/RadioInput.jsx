@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function RadioInput(props) {
   const {
-    id, name, carType, carPrice,
+    id, name, carType, carPrice, scrollPage,
   } = props;
   return (
     <li>
@@ -15,6 +15,7 @@ function RadioInput(props) {
         name="carRental"
         value={id}
         className="hidden peer"
+        onClick={() => scrollPage()}
         required
       />
       <label
@@ -55,4 +56,5 @@ RadioInput.propTypes = {
   name: PropTypes.string.isRequired,
   carType: PropTypes.string.isRequired,
   carPrice: PropTypes.number.isRequired,
+  scrollPage: PropTypes.func.isRequired,
 };
