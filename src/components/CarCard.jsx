@@ -1,8 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useLocation, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import deleteCars from '../data-api/deleteCars';
 
 function CarCard(props) {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
   const {
     id,
     img,
@@ -20,6 +25,12 @@ function CarCard(props) {
   const today = [date.getFullYear(), date.getMonth() + 1, date.getDate()].join(
     '-',
   );
+
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    location.state = {};
+    dispatch(deleteCars(id));
+  };
 
   return (
     <Link to={reservationLink}>
@@ -61,6 +72,7 @@ function CarCard(props) {
             <button
               className=" bg-red-400 self-stretch p-2 rounded-full mt-4 hover:bg-red-600 active:bg-red-200"
               type="button"
+              onClick={(e) => handleDelete(e, id)}
             >
               Delete Car
             </button>
