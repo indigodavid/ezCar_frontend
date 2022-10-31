@@ -6,6 +6,9 @@ import CarCard from '../../components/CarCard';
 import getCars from '../../data-api/getCars';
 
 export default function DeleteCar() {
+  const dispatch = useDispatch();
+  const { cars } = useSelector((state) => state.cars);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -25,6 +28,11 @@ export default function DeleteCar() {
       items: 1,
     },
   };
+
+  useEffect(() => {
+    dispatch(getCars());
+  }, [dispatch]);
+
   return (
     <div className="pb-8 px-4 md:px-16">
       <div className="flex flex-col items-center justify-center py-8 md:py-16 md:pb-32">
