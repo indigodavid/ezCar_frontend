@@ -33,7 +33,7 @@ function MyReservations() {
           return (
             <CarCard
               key={res.id}
-              id={res.id}
+              id={reservedCar.id}
               img={reservedCar.image}
               name={reservedCar.name}
               carType={reservedCar.car_type}
