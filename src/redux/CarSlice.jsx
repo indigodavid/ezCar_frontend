@@ -42,7 +42,7 @@ const carSlice = createSlice({
     builder.addCase(deleteCars.fulfilled, (state, action) => ({
       ...state,
       status: 'success',
-      cars: state.cars.filter((car) => car.id !== action.payload.id),
+      cars: state.cars.filter((car) => car.id !== action.payload),
     }));
     builder.addCase(deleteCars.pending, (state) => ({
       ...state,
