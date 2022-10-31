@@ -77,7 +77,7 @@ function ReserveCar(props) {
       className={
         ReserveOpener
           ? 'hidden'
-          : ' bg-white fixed top-0 h-full w-5/6 p-4 md:w-96'
+          : ' bg-white fixed top-0 right-6 h-full w-5/6 p-4 md:w-96'
       }
     >
       <div className="flex flex-col gap-5 text-center">

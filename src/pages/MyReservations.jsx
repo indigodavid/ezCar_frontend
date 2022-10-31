@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CarCard from '../components/CarCard';
+import getCars from '../data-api/getCars';
 import getReservations from '../data-api/getReservation';
 
 function MyReservations() {
   const dispatch = useDispatch();
   const { reservation } = useSelector((state) => state.reservation);
+  const { cars } = useSelector((state) => state.cars);
 
   useEffect(() => {
     dispatch(getReservations());
+    dispatch(getCars());
   }, [dispatch]);
   console.log(reservation);
+  console.log(cars);
   return (
     <div className="pb-4">
       <div className="flex flex-col items-center justify-center py-16 md:pb-32">
