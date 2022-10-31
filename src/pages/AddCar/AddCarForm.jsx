@@ -133,7 +133,7 @@ function AddCarForm() {
               </label>
             </div>
             <div className="flex z-0 mb-6 w-full gap-2 items-center group">
-            <InputColor initialValue="#5e72e4" onChange={setColor} placement="right" />
+              <InputColor initialValue="#5e72e4" onChange={setColor} placement="right" />
               <input
                 type="text"
                 name="color"
