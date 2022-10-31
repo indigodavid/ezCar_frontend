@@ -15,10 +15,24 @@ export default function SignUp() {
   const [errorMessage, setErrorMessage] = useState('');
   const [selectedDay, setSelectedDay] = useState(null);
 
+  const isOfValidAge = () => {
+    const date1 = new Date(
+      `${selectedDay.month}/${selectedDay.day}/${selectedDay.year}`,
+    );
+    const date2 = new Date();
+    const differenceInTime = date2.getTime() - date1.getTime();
+    const differenceInYears = differenceInTime / (1000 * 3600 * 24 * 365.25);
+    if (differenceInYears < 18) {
+      setErrorMessage('You need to be 18 or older.');
+    }
+    return differenceInYears >= 18;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
+    if (!isOfValidAge()) return;
     const userInfo = {
       user: {
         name: data.name,
@@ -52,7 +66,7 @@ export default function SignUp() {
           {errorMessage && <div className="alert">{errorMessage}</div>}
           <div className="field group">
             <input
-              type="name"
+              type="text"
               name="name"
               id="name"
               className="text-field peer"
@@ -132,14 +146,14 @@ export default function SignUp() {
           </div>
           <div className="field flex flex-col items-center mt-9 group">
             <label
-              htmlFor="date-of-birth"
+              htmlFor="date_of_birth"
               className="peer-focus:font-medium label-field peer-focus:left-0 peer-focus:text-lime-600 peer-focus:dark:text-lime-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
             >
               Date of Birth
             </label>
             <DatePicker
-              name="date-of-birth"
-              id="date-of-birth"
+              name="date_of_birth"
+              id="date_of_birth"
               value={selectedDay}
               onChange={setSelectedDay}
               inputPlaceholder="Select a day"
