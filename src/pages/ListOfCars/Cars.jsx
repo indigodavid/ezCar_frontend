@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import CarCard from '../../components/Cars/CarCard';
 import getCars from '../../redux/actions/Car/getCars';
 
-export default function DeleteCar() {
+function Cars() {
   const dispatch = useDispatch();
   const { cars } = useSelector((state) => state.cars);
-
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -37,10 +36,10 @@ export default function DeleteCar() {
     <div className="pb-8 px-4 md:px-16">
       <div className="flex flex-col items-center justify-center py-8 md:py-16 md:pb-32">
         <h1 className=" text-4xl font-bold text-center">
-          List of cars created
+          Latest Model Cars Available.
         </h1>
         <p className=" text-xs text-slate-400">
-          Please select the car to delete
+          Please select your car for reservation.
         </p>
       </div>
       <Carousel responsive={responsive}>
@@ -55,7 +54,6 @@ export default function DeleteCar() {
               carBrand={car.brand}
               carPrice={car.fee_per_day}
               carColor={car.color}
-              deleteCar
             />
           </div>
         ))}
@@ -63,3 +61,5 @@ export default function DeleteCar() {
     </div>
   );
 }
+
+export default Cars;
