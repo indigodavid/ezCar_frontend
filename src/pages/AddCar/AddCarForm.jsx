@@ -132,7 +132,8 @@ function AddCarForm() {
                 Fee per day
               </label>
             </div>
-            <div className="flex z-0 mb-6 w-full group">
+            <div className="flex z-0 mb-6 w-full gap-2 items-center group">
+              <InputColor initialValue="#5e72e4" onChange={setColor} placement="right" />
               <input
                 type="text"
                 name="color"
@@ -142,9 +143,8 @@ function AddCarForm() {
                 placeholder=" "
                 required
               />
-              <InputColor initialValue="#5e72e4" onChange={setColor} placement="right" />
 
-              <label>
+              <label className="hidden">
                 Color
               </label>
             </div>
