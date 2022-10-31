@@ -15,7 +15,6 @@ function CarCard(props) {
     carType,
     carBrand,
     carPrice,
-    carColor,
     reservationDate,
     reservation,
     deleteCar,
@@ -49,7 +48,6 @@ function CarCard(props) {
             )
           </h1>
           {!deleteCar && <p className=" text-sm">{carType}</p>}
-          {!deleteCar && <p className=" text-xs">{carColor}</p>}
           {reservation && (
             <div
               className={
@@ -92,7 +90,6 @@ CarCard.propTypes = {
   carType: PropTypes.string.isRequired,
   carBrand: PropTypes.string.isRequired,
   carPrice: PropTypes.number.isRequired,
-  carColor: PropTypes.string.isRequired,
   reservationDate: PropTypes.string,
   reservation: PropTypes.bool,
   deleteCar: PropTypes.bool,
