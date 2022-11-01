@@ -4,6 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import CarCard from '../../components/Cars/CarCard';
 import getCars from '../../redux/actions/Car/getCars';
+import getReservations from '../../redux/actions/Reservation/getReservation';
 
 export default function DeleteCar() {
   const dispatch = useDispatch();
@@ -32,6 +33,10 @@ export default function DeleteCar() {
   useEffect(() => {
     dispatch(getCars());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getReservations());
+  }, [dispatch, cars]);
 
   return (
     <div className="pb-8 px-4 md:px-16">
