@@ -6,12 +6,19 @@
 
 ## Built With
 
+### Technologies
 - React
 - Redux
 - Tailwind CSS
 - MUI
 - Flowbite
 - ReactMultiCarousel
+
+### Tools
+- Visual Studio Code
+- GIT
+- Rubocop
+- Heroku 
 
 ## Live Demo (if available)
 
