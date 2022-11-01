@@ -17,6 +17,18 @@
   @apply bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 text-xs;
 }
 
+button.react-multiple-carousel__arrow {
+  @apply bg-lime-400 opacity-60 hover:bg-lime-400 hover:opacity-90 w-16;
+}
+
+button.react-multiple-carousel__arrow--right {
+  @apply rounded-tr-none rounded-br-none;
+}
+
+button.react-multiple-carousel__arrow--left {
+  @apply rounded-tl-none rounded-bl-none;
+}
+
 body {
   margin: 0;
   font-family:
