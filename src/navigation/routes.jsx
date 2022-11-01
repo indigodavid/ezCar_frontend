@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://ezcar-backend.herokuapp.com';
 const LOG_IN = '/login';
 const LOG_OUT = '/logout';
 const SIGN_UP = '/signup';
