@@ -40,8 +40,10 @@ To get a local copy up and running follow these simple example steps.
     npm start
 
 ### Deployment
-    [Front-end Netlify Deployment](https://ezcar.netlify.app/) 
-    [Back-end Heroku Deployment](https://ezcar-backend.herokuapp.com/)
+
+[Front-end Netlify Deployment](https://ezcar.netlify.app/) 
+
+[Back-end Heroku Deployment](https://ezcar-backend.herokuapp.com/)
 
 ## Authors
 
