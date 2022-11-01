@@ -15,7 +15,7 @@ function CarDetail({
   toggleReservation,
   ReserveOpener,
 }) {
-  const color = `self-end bg-[${carColor}] p-4`;
+  const color = 'self-end p-4';
   const handleClick = () => {
     toggleReservation();
   };
@@ -33,7 +33,7 @@ function CarDetail({
       </div>
       <div className="self-end flex gap-4">
         <p>Color: </p>
-        <div className={color} />
+        <div className={color} style={{ backgroundColor: carColor }} />
       </div>
       <div className="btn-primary mt-8 flex items-center justify-center md:self-start">
         <SettingsIcon />
