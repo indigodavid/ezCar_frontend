@@ -48,7 +48,7 @@ export default function DeleteCar() {
           Please select the car to delete
         </p>
       </div>
-      <Carousel responsive={responsive}>
+      <Carousel responsive={responsive} showDots>
         {cars.map((car) => (
           <div key={car.id}>
             <CarCard

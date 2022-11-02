@@ -42,7 +42,7 @@ function Cars() {
           Please select your car for reservation.
         </p>
       </div>
-      <Carousel responsive={responsive}>
+      <Carousel responsive={responsive} showDots>
         {cars.map((car) => (
           <div key={car.id}>
             <CarCard
