@@ -3,10 +3,15 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import InputColor from 'react-input-color';
+import { IKContext, IKUpload } from 'imagekitio-react';
 import createCars from '../../redux/actions/Car/createCars';
+import {
+  BASE_URL, IMAGE_AUTH, IMAGE_KEY, IMAGE_URL,
+} from '../../navigation/routes';
 
 function AddCarForm() {
   const [color, setColor] = React.useState({});
+  const [imageMessage, setImageMessage] = useState('');
   const cars = useSelector((state) => state.cars);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -43,6 +48,23 @@ function AddCarForm() {
       }
     }
   }, [cars]);
+
+  const onUploadStart = () => {
+    setImageMessage('Upload Started');
+  };
+
+  const onUploadProgress = (evt) => {
+    setImageMessage(`Progress: ${((evt.loaded / evt.total) * 100).toFixed(2)}%`);
+  };
+
+  const onError = (err) => {
+    setImageMessage(`Error: ${err.message}`);
+  };
+
+  const onSuccess = (res) => {
+    setImageMessage('Success!');
+    document.getElementById('image').value = res.url;
+  };
 
   return (
     <div className="add-car-wrapper">
@@ -113,6 +135,21 @@ function AddCarForm() {
               >
                 Add the url of an Image
               </label>
+            </div>
+            <div className="grid md:grid-cols-1 w-full">
+              <IKContext
+                publicKey={IMAGE_KEY}
+                urlEndpoint={IMAGE_URL}
+                authenticationEndpoint={`${BASE_URL}${IMAGE_AUTH}`}
+              >
+                <IKUpload
+                  onError={onError}
+                  onSuccess={onSuccess}
+                  onUploadStart={onUploadStart}
+                  onUploadProgress={onUploadProgress}
+                />
+                <div>{imageMessage}</div>
+              </IKContext>
             </div>
             <div className="field group">
               <input
