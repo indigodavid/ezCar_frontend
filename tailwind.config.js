@@ -6,6 +6,12 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: [
+        'Montserrat, sans-serif',
+        { fontFeatureSettings: '"cv11", "ss01"' },
+      ],
+    },
     extend: {
       gridTemplateColumns: {
         responsive: 'repeat(auto-fit,minmax(280px,1fr))',
