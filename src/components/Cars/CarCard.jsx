@@ -51,7 +51,7 @@ function CarCard(props) {
           {reservation && (
             <div
               className={
-                today > reservationDate
+                today < reservationDate
                   ? ' bg-red-400 self-end p-2 rounded-full'
                   : ' bg-green-400 self-end p-2 rounded-full'
               }

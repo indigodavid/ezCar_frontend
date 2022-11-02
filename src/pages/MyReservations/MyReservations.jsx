@@ -12,7 +12,7 @@ function MyReservations() {
   useEffect(() => {
     dispatch(getReservations());
     dispatch(getCars());
-  }, [dispatch, cars]);
+  }, [dispatch, cars.cars]);
 
   const car = (id) => {
     const filterdCar = cars.filter((car) => car.id === id);

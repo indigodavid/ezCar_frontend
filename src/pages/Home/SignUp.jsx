@@ -3,9 +3,14 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { IKContext, IKUpload } from 'imagekitio-react';
+import { Progress } from 'flowbite-react';
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import signUpUser from '../../redux/actions/User/signUpUser';
+import {
+  BASE_URL, IMAGE_AUTH, IMAGE_KEY, IMAGE_URL,
+} from '../../navigation/routes';
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -14,6 +19,8 @@ export default function SignUp() {
   const user = useSelector((state) => state.user);
   const [errorMessage, setErrorMessage] = useState('');
   const [selectedDay, setSelectedDay] = useState(null);
+  const [imageMessage, setImageMessage] = useState('');
+  const [progress, setProgress] = useState(0);
 
   const isOfValidAge = () => {
     const date1 = new Date(
@@ -59,6 +66,24 @@ export default function SignUp() {
     }
   }, [navigate, user]);
 
+  const onUploadStart = () => {
+    setImageMessage('Upload Started');
+  };
+
+  const onUploadProgress = (evt) => {
+    setImageMessage('Progress: ');
+    setProgress(((evt.loaded / evt.total) * 100).toFixed(0));
+  };
+
+  const onError = (err) => {
+    setImageMessage(`Error: ${err.message}`);
+  };
+
+  const onSuccess = (res) => {
+    setImageMessage('Success!');
+    document.getElementById('photo').value = res.url;
+  };
+
   return (
     <div className="splash">
       <div className="overlay">
@@ -93,8 +118,24 @@ export default function SignUp() {
               htmlFor="photo"
               className="peer-focus:font-medium label-field peer-focus:left-0 peer-focus:text-lime-600 peer-focus:dark:text-lime-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
             >
-              Photo
+              Add a photo url or upload from your disc
             </label>
+          </div>
+          <div className="field group">
+            <IKContext
+              publicKey={IMAGE_KEY}
+              urlEndpoint={IMAGE_URL}
+              authenticationEndpoint={`${BASE_URL}${IMAGE_AUTH}`}
+            >
+              <IKUpload
+                onError={onError}
+                onSuccess={onSuccess}
+                onUploadStart={onUploadStart}
+                onUploadProgress={onUploadProgress}
+              />
+              <div>{imageMessage}</div>
+              {progress ? <Progress progress={progress} color="indigo" /> : ' '}
+            </IKContext>
           </div>
           <div className="field group">
             <input
