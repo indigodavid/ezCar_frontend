@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import InputColor from 'react-input-color';
 import { IKContext, IKUpload } from 'imagekitio-react';
+import { Progress } from 'flowbite-react';
 import createCars from '../../redux/actions/Car/createCars';
 import {
   BASE_URL, IMAGE_AUTH, IMAGE_KEY, IMAGE_URL,
@@ -12,6 +13,7 @@ import {
 function AddCarForm() {
   const [color, setColor] = React.useState({});
   const [imageMessage, setImageMessage] = useState('');
+  const [progress, setProgress] = useState(0);
   const cars = useSelector((state) => state.cars);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -54,7 +56,8 @@ function AddCarForm() {
   };
 
   const onUploadProgress = (evt) => {
-    setImageMessage(`Progress: ${((evt.loaded / evt.total) * 100).toFixed(2)}%`);
+    setImageMessage('Progress: ');
+    setProgress(((evt.loaded / evt.total) * 100).toFixed(0));
   };
 
   const onError = (err) => {
@@ -133,7 +136,7 @@ function AddCarForm() {
                 htmlFor="image"
                 className="peer-focus:font-medium label-field peer-focus:left-0 peer-focus:text-lime-600 peer-focus:dark:text-lime-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
               >
-                Add the url of an Image
+                Add the url of an Image or upload from your local disc
               </label>
             </div>
             <div className="grid md:grid-cols-1 w-full">
@@ -149,6 +152,7 @@ function AddCarForm() {
                   onUploadProgress={onUploadProgress}
                 />
                 <div>{imageMessage}</div>
+                {progress ? <Progress progress={progress} color="indigo" /> : ' '}
               </IKContext>
             </div>
             <div className="field group">
