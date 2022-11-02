@@ -31,8 +31,6 @@ button.react-multiple-carousel__arrow--left {
 }
 
 body {
-  /* margin: 0;
-  transition-duration: 0.5s; */
   @apply m-0 transition-all;
 }
 
