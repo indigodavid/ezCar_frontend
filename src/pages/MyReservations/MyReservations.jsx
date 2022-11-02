@@ -25,7 +25,7 @@ function MyReservations() {
         <h1 className=" text-4xl font-bold text-center">Reserved Cars.</h1>
         <p className=" text-xs text-slate-400">Lists of all reservations.</p>
       </div>
-      <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4">
+      <div className="grid grid-cols-responsive px gap-4 justify-items-center">
         {reservation.map((res) => {
           const reservedCar = car(res.car_id)[0];
           return (

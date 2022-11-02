@@ -33,7 +33,7 @@ function CarCard(props) {
 
   return (
     <Link to={reservationLink}>
-      <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-3">
+      <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-3 hover:shadow-lg hover:shadow-lime-500 hover:brightness-110">
         <img
           className="rounded-t-lg object-cover w-full h-72"
           src={img}
