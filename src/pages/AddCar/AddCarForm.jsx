@@ -136,7 +136,7 @@ function AddCarForm() {
                 htmlFor="image"
                 className="peer-focus:font-medium label-field peer-focus:left-0 peer-focus:text-lime-600 peer-focus:dark:text-lime-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
               >
-                Add the url of an Image or upload from your local disc
+                Add a photo url or upload file
               </label>
             </div>
             <div className="grid md:grid-cols-1 w-full">

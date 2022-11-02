@@ -118,10 +118,10 @@ export default function SignUp() {
               htmlFor="photo"
               className="peer-focus:font-medium label-field peer-focus:left-0 peer-focus:text-lime-600 peer-focus:dark:text-lime-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
             >
-              Add a photo url or upload from your disc
+              Add a photo url or upload file
             </label>
           </div>
-          <div className="field group">
+          <div className="field group flex flex-col">
             <IKContext
               publicKey={IMAGE_KEY}
               urlEndpoint={IMAGE_URL}
