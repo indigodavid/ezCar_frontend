@@ -19,11 +19,7 @@ function CarCard(props) {
     reservation,
     deleteCar,
   } = props;
-  const date = new Date();
   const reservationLink = `/cars/reservation/${id}`;
-  const today = [date.getFullYear(), date.getMonth() + 1, date.getDate()].join(
-    '-',
-  );
 
   const handleDelete = (e, id) => {
     e.preventDefault();
@@ -49,13 +45,7 @@ function CarCard(props) {
           </h1>
           {!deleteCar && <p className=" text-sm">{carType}</p>}
           {reservation && (
-            <div
-              className={
-                today < reservationDate
-                  ? ' bg-red-400 self-end p-2 rounded-full'
-                  : ' bg-green-400 self-end p-2 rounded-full'
-              }
-            >
+            <div className="bg-lime-400 self-end p-2 rounded-full">
               <p>{reservationDate}</p>
             </div>
           )}
