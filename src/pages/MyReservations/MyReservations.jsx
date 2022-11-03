@@ -26,7 +26,7 @@ function MyReservations() {
         <p className=" text-xs text-slate-400">Lists of all reservations.</p>
       </div>
       <div className="grid grid-cols-responsive px gap-4 justify-items-center">
-        {reservation.map((res) => {
+        {reservation.length > 0 && cars.length > 0 ? (reservation.map((res) => {
           const reservedCar = car(res.car_id)[0];
           return (
             <CarCard
@@ -42,7 +42,7 @@ function MyReservations() {
               reservationDate={res.reservation_date}
             />
           );
-        })}
+        })) : <div>No Reserved Cars</div> }
       </div>
     </div>
   );
