@@ -58,6 +58,8 @@ To get a local copy up and running follow these simple example steps.
 
 [Front-end Netlify Deployment](https://ezcar.netlify.app/) 
 
+[Front-end Vercel Deployment](https://ez-car-frontend-1ojf.vercel.app/) 
+
 [Back-end Heroku Deployment](https://ezcar-backend.herokuapp.com/)
 
 ## Authors
