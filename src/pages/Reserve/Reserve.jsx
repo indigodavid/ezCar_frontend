@@ -8,6 +8,7 @@ import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import RadioInput from '../../components/Buttons/RadioInput';
 import getCars from '../../redux/actions/Car/getCars';
 import addReservations from '../../redux/actions/Reservation/addReservation';
+import Loading from '../../components/Buttons/Loading';
 
 function Reserve() {
   const dispatch = useDispatch();
@@ -74,7 +75,7 @@ function Reserve() {
           Which Car do you want to reserve?
         </h3>
         <ul className="grid gap-6 w-full md:grid-cols-2">
-          {cars.map((car) => (
+          {cars.length > 0 ? (cars.map((car) => (
             <RadioInput
               key={car.id}
               id={car.id}
@@ -83,7 +84,7 @@ function Reserve() {
               carPrice={car.fee_per_day}
               scrollPage={scrollPage}
             />
-          ))}
+          ))) : <Loading message="Loading Cars" /> }
         </ul>
         <div className=" self-center mt-4" ref={calRef}>
           <Calendar

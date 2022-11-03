@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import Loading from '../../components/Buttons/Loading';
 import CarDetail from '../../components/Cars/CarDetail';
 import getCars from '../../redux/actions/Car/getCars';
 
@@ -27,7 +28,7 @@ function Reservation() {
       className="grid md:grid-cols-[4fr,_1fr] gap-3 items-center justify-between p-4  md:p-8 md:pt-8 "
       id="Reservation"
     >
-      {car && car.id && (
+      {car && car.id ? (
         <>
           <img
             src={car.image}
@@ -45,7 +46,7 @@ function Reservation() {
             ReserveOpener={ReserveOpener}
           />
         </>
-      )}
+      ) : <Loading message="Loading Car information..." /> }
     </section>
   );
 }

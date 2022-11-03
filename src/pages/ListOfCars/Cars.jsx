@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
+import Loading from '../../components/Buttons/Loading';
 import CarCard from '../../components/Cars/CarCard';
 import getCars from '../../redux/actions/Car/getCars';
 
@@ -42,22 +43,26 @@ function Cars() {
           Please select your car for reservation.
         </p>
       </div>
-      <Carousel responsive={responsive} showDots>
-        {cars.map((car) => (
-          <div key={car.id}>
-            <CarCard
-              key={car.id}
-              id={car.id}
-              img={car.image}
-              name={car.name}
-              carType={car.car_type}
-              carBrand={car.brand}
-              carPrice={car.fee_per_day}
-              carColor={car.color}
-            />
-          </div>
-        ))}
-      </Carousel>
+      {cars.length > 0
+        ? (
+          <Carousel responsive={responsive} showDots>
+            {cars.map((car) => (
+              <div key={car.id}>
+                <CarCard
+                  key={car.id}
+                  id={car.id}
+                  img={car.image}
+                  name={car.name}
+                  carType={car.car_type}
+                  carBrand={car.brand}
+                  carPrice={car.fee_per_day}
+                  carColor={car.color}
+                />
+              </div>
+            ))}
+          </Carousel>
+        )
+        : <Loading message="Loading Cars" /> }
     </div>
   );
 }

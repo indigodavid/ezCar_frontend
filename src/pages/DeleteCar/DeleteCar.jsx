@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
+import Loading from '../../components/Buttons/Loading';
 import CarCard from '../../components/Cars/CarCard';
 import getCars from '../../redux/actions/Car/getCars';
 import getReservations from '../../redux/actions/Reservation/getReservation';
@@ -49,7 +50,7 @@ export default function DeleteCar() {
         </p>
       </div>
       <Carousel responsive={responsive} showDots>
-        {cars.map((car) => (
+        {cars.length > 0 ? (cars.map((car) => (
           <div key={car.id}>
             <CarCard
               key={car.id}
@@ -63,7 +64,7 @@ export default function DeleteCar() {
               deleteCar
             />
           </div>
-        ))}
+        ))) : <Loading message="Loading Cars" /> }
       </Carousel>
     </div>
   );
